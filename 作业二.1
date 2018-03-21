@@ -1,0 +1,13 @@
+#include <stdio.h>  
+int main(void)
+ {
+     char buf[128] = {0};  // 初始化为0
+     FILE *fp = fopen("a.txt", "r");//打开文件
+     while (0 != fread(buf, 1, 127, fp))   // 这里不能读满，最大为127      
+   {     
+ printf("%s",  buf);
+         memset(buf, 0, 128);      //清0
+    }
+fclose(fp);
+return 0;
+}
